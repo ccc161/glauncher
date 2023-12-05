@@ -28,14 +28,14 @@ const LaunchSettingsCard = () => {
 
 
 
-  const handleWidthChange = (value: ValueType | null) => {
-    if (value !== undefined) {
+  const handleWidthChange = (value: number | null) => {
+    if (value !== null) {
       setWidth(value);
     }
   };
 
-  const handleHeightChange = (value: ValueType | null) => {
-    if (value !== undefined) {
+  const handleHeightChange = (value: number | null) => {
+    if (value !== null) {
       setHeight(value);
     }
   };
