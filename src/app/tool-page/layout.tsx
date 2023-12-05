@@ -18,11 +18,10 @@ export default function PageLayout({
   return (
     <Flex style={{
       maxHeight: "100%",
-      marginLeft: "5vw",
-      marginRight: "2vw",
+      marginLeft: "1vw",
+      marginRight: "1vw",
       marginTop: "0",
       marginBottom: "0",
-      backgroundColor: "blue",
     }}>
       {children}
     </Flex>

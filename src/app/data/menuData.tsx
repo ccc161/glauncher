@@ -1,7 +1,14 @@
-import { RocketFilled, SettingFilled, InfoCircleFilled } from "@ant-design/icons"
+import { RocketFilled, SettingFilled, InfoCircleFilled, HomeFilled } from "@ant-design/icons"
 import { MenuItemView } from "../entity/menuEntity";
 
 let MainMenuViews: MenuItemView[] = [
+    {
+        key: "homeMenu",
+        name: "首页",
+        path: '/tool-page/home',
+        icon: <HomeFilled />,
+        children: []
+    },
     {
         key: "launcherMenu",
         name: "启动",

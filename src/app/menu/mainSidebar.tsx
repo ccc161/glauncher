@@ -38,13 +38,12 @@ const MainMenu = () => {
     const checkScreenSize = () => {
       setCollapsed(window.innerWidth < 800);
     };
-    checkScreenSize()
 
     function handleCollapse(value: boolean) {
       setCollapsed(value)
     }
     const handleResize = () => {
-      setCollapsed(window.innerWidth < 800);
+      // setCollapsed(window.innerWidth < 800);
     };
     if (typeof window !== 'undefined') {
       // Attach the event listener
@@ -67,7 +66,7 @@ const MainMenu = () => {
   return (
     <>
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={handleCollapse}>
+        <Sider theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={handleCollapse}>
           <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={mainMenuItems} />
         </Sider>
       </Layout>

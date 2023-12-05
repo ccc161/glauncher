@@ -8,7 +8,8 @@ import DefaultToolPage from './tool-page/default/page';
 
 const App: React.FC = () => {
   return (
-    <DefaultToolPage />
+    <></>
+    // <DefaultToolPage />
   );
 };
 
