@@ -16,15 +16,13 @@ export default function PageLayout({
   children: React.ReactNode
 }) {
   return (
-    <Flex style={{
-      maxHeight: "100%",
-      marginLeft: "1vw",
-      marginRight: "1vw",
-      marginTop: "0",
-      marginBottom: "0",
-      backgroundColor: "green"
-    }}>
-      {children}
-    </Flex>
+    <>
+      <Row style={{ margin: 0, height: "100%", width: "100%" , minHeight: "100vh", maxWidth: "100vw"}}>
+        <Col flex={1} style={{}}>
+            {children}
+        </Col>
+      </Row>
+    </>
+
   )
 }

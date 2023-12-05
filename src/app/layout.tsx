@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning style={{ margin: 0 }}>
         <StyledComponentsRegistry>
-          <Row wrap={false} align={'top'} gutter={[0, 0]}>
+          <Row wrap={false} align={'top'} gutter={[0, 0]} style={{minHeight: "100vh"}}>
             <Col flex="none">
               <MainMenu />
             </Col>
