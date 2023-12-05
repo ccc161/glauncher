@@ -6,6 +6,14 @@ import LauncherPage from "../tool-page/launcher/page";
 import SettingsPage from "../tool-page/settings/page";
 type MenuItem = Required<MenuProps>['items'][number];
 
+export interface MenuItemView {
+    key: React.Key,
+    name: string,
+    path: string,
+    icon: React.ReactNode,
+    children: MenuItemView[],
+}
+
 export function getItem(
     label: React.ReactNode,
     key: React.Key,
@@ -19,14 +27,6 @@ export function getItem(
       label,
     } as MenuItem;
   }
-
-export interface MenuItemView {
-    key: React.Key,
-    name: string,
-    path: string,
-    icon: React.ReactNode,
-    children: MenuItemView[],
-}
 
 export function fromMenuViewToMenuItem(view: MenuItemView): MenuItem {
     let children:MenuItem[] = []
@@ -44,39 +44,3 @@ export function fromMenuViewToMenuItem(view: MenuItemView): MenuItem {
     }
     return getItem(label, view.key, view.icon)
 }
-
-let MainMenuViews: MenuItemView[] = [
-    {
-        key: "launcherMenu",
-        name: "启动",
-        path: '/tool-page/launcher',
-        icon: <RocketFilled />,
-        children: []
-    },
-    {
-        key: "mainSettingsMenu",
-        name: "设置",
-        path: '/tool-page/settings',
-        icon: <SettingFilled />,
-        children: []
-    },
-    {
-        key: "aboutMenu",
-        name: "关于",
-        path: '/tool-page/about',
-        icon: <InfoCircleFilled />,
-        children: []
-    },
-]
-
-for (let i = 0; i < 3; i++) {
-    MainMenuViews.push({
-        key: (Math.random() * 100).toString(),
-        name: "关于",
-        path: '/tool-page/about',
-        icon: <InfoCircleFilled />,
-        children: []
-    });
-}
-
-export default MainMenuViews;

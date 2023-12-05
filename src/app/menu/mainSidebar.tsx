@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { clickMainMenuButtonHandler } from "../handler/menuHandler";
 // import { mainMenuItems } from "./menuItem";
-import MainMenuViews from "../entity/menu"
+import MainMenuViews from '../data/sidebar';
 
 import type { MenuProps } from 'antd';
 import { MenuItem } from 'rc-menu';
