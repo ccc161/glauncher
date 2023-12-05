@@ -1,4 +1,4 @@
-import { RocketFilled, SettingFilled, InfoCircleFilled, HomeFilled } from "@ant-design/icons"
+import { RocketFilled, SettingFilled, InfoCircleFilled, HomeFilled, MessageFilled } from "@ant-design/icons"
 import { MenuItemView } from "../view/menuView";
 
 let MainMenuViews: MenuItemView[] = [
@@ -30,9 +30,16 @@ let MainMenuViews: MenuItemView[] = [
         icon: <InfoCircleFilled />,
         children: []
     },
+    {
+        key: "greetMenu",
+        name: "欢迎",
+        path: '/greet',
+        icon: <MessageFilled />,
+        children: []
+    },
 ]
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 30; i++) {
     MainMenuViews.push({
         key: (Math.random() * 100).toString(),
         name: "关于",
