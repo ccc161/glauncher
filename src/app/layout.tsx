@@ -4,6 +4,7 @@ import './globals.css'
 
 import StyledComponentsRegistry from '../lib/AntdRegistry'
 import { Flex, Layout } from 'antd';
+import { Col, Divider, Row } from 'antd';
 
 import MainMenu from "./menu/mainSidebar"
 
@@ -24,16 +25,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning style={{ margin: 0 }}>
         <StyledComponentsRegistry>
-          <Layout>
-            <Flex >
-              <div id='sidebarMenu' style={{ minWidth: "5vw", maxWidth: "20vw" }}>
-                <MainMenu />
-              </div>
-              <Layout style={{ maxWidth: "calc(100vw - var(--sidebar-width))" }}>
+          <Row wrap={false}>
+            <div id='sidebarMenu' style={{ minWidth: "5vw", maxWidth: "20vw" }}>
+              <MainMenu />
+            </div>
+              <div style={{maxWidth: "100%", maxHeight: "100%"}}>
                 {children}
-              </Layout>
-            </Flex>
-          </Layout>
+              </div>
+          </Row>
         </StyledComponentsRegistry>
       </body>
     </html>

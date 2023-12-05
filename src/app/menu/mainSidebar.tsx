@@ -1,41 +1,74 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import { clickMainMenuButtonHandler } from "../handler/menuHandler";
 // import { mainMenuItems } from "./menuItem";
-import MainMenuViews from '../data/sidebar';
+import MainMenuViews from '../data/menuData';
 
 import type { MenuProps } from 'antd';
 import { MenuItem } from 'rc-menu';
-import { fromMenuViewToMenuItem } from '../entity/menu';
-
+import { fromMenuViewToMenuItem } from '../entity/menuEntity';
+const { Sider } = Layout;
 
 const MenuStyle: React.CSSProperties = {
   overflowY: "auto",
   maxHeight: "100vh",
 }
 
+
 type MenuItem = Required<MenuProps>['items'][number];
 
-let mainMenuItems: MenuItem[] = []
 
-for (const menuView of MainMenuViews) {
-  const menuItem = fromMenuViewToMenuItem(menuView)
-  mainMenuItems.push(menuItem)
-}
 
-let selectedKey = mainMenuItems.at(0)?.key as string
+
 
 const MainMenu = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  // const initialCollapsed = (typeof window !== 'undefined') ? (window.innerWidth < 800) : false
+  const [collapsed, setCollapsed] = useState<boolean>(true);
 
-  const { Sider } = Layout;
+  function handleCollapse(value: boolean) {
+    setCollapsed(value)
+  }
+  
+  useEffect(() => {
+
+    
+    // Function to check screen size and update the flag
+    
+    const checkScreenSize = () => {
+      setCollapsed(window.innerWidth < 800);
+    };
+    checkScreenSize()
+
+    function handleCollapse(value: boolean) {
+      setCollapsed(value)
+    }
+    const handleResize = () => {
+      setCollapsed(window.innerWidth < 800);
+    };
+    if (typeof window !== 'undefined') {
+      // Attach the event listener
+      window.addEventListener('resize', handleResize);
+
+      // Remove the event listener on component unmount
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+  }, []);
+
+  let mainMenuItems: MenuItem[] = []
+
+  for (const menuView of MainMenuViews) {
+    const menuItem = fromMenuViewToMenuItem(menuView)
+    mainMenuItems.push(menuItem)
+  }
 
   return (
     <>
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" items={mainMenuItems} />
+        <Sider collapsible theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={handleCollapse}>
+          <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={mainMenuItems} />
         </Sider>
       </Layout>
     </>

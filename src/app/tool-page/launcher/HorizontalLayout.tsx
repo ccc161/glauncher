@@ -3,18 +3,18 @@ import { Button, Card, Divider } from 'antd';
 
 const HorizontalLayout = () => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', marginLeft: "3vw"}}>
+    <div style={{ display: 'flex', alignItems: 'center'}}>
       {/* Left side with a button */}
       <Button type="primary">Launch!</Button>
 
       {/* Split between the left and right */}
-      <Divider type="vertical" style={{ height: '100%', margin: '0 16px' }} />
+      <Divider type="vertical" style={{ height: '100%',}} />
 
       {/* Right side with a horizontal rolled list of cards */}
-      <div style={{ display: 'flex', overflowX: 'auto', maxWidth: "70vw" }}>
+      <div style={{ display: 'flex', overflowX: 'scroll', maxWidth: "70vw" }}>
         {/* Replace this with your actual data */}
-        {[1, 2, 3,4,5,6].map((item) => (
-          <Card key={item} style={{ width: 200, margin: '0 8px' }}>
+        {[1, 2, 3].map((item) => (
+          <Card key={item} style={{ maxWidth: "15vw", margin: '0 8px' }}>
             <p>Card {item}</p>
           </Card>
         ))}
