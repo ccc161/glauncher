@@ -1,34 +1,30 @@
 'use client'
 import React, { useState } from 'react';
-import {
-  RocketFilled,
-  SettingFilled,
-  InfoCircleFilled,
-} from '@ant-design/icons';
-import { Layout, Menu, List } from 'antd';
-import type { MenuProps } from 'antd';
-import { getItem } from "./commonFunction"
-import { clickMainMenuButtonHandler } from "../handler/menuHandler"
+import { Layout, Menu } from 'antd';
+import { clickMainMenuButtonHandler } from "../handler/menuHandler";
+// import { mainMenuItems } from "./menuItem";
+import MainMenuViews from "../entity/menu"
 
-type MenuItem = Required<MenuProps>['items'][number];
+import type { MenuProps } from 'antd';
+import { MenuItem } from 'rc-menu';
+import { fromMenuViewToMenuItem } from '../entity/menu';
+
 
 const MenuStyle: React.CSSProperties = {
   overflowY: "auto",
   maxHeight: "100vh",
 }
 
-const mainMenuItems: MenuItem[] = [
-  getItem('启动', 'quickLauncherMenu', <RocketFilled />),
-  getItem('设置', 'mainSettingsMenu', <SettingFilled />),
-  getItem('关于', 'aboutMenu', <InfoCircleFilled />),
-]
+type MenuItem = Required<MenuProps>['items'][number];
 
-for (let i = 1; i <= 30; i++) {
-  mainMenuItems.push(getItem('关于', `aboutMenu${i}`, <InfoCircleFilled />));
+let mainMenuItems: MenuItem[] = []
+
+for (const menuView of MainMenuViews) {
+  const menuItem = fromMenuViewToMenuItem(menuView)
+  mainMenuItems.push(menuItem)
 }
 
 let selectedKey = mainMenuItems.at(0)?.key as string
-
 
 const MainMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -37,16 +33,11 @@ const MainMenu = () => {
 
   return (
     <>
-      <div style={{ maxHeight: "100%" }}>
-        <Sider theme="light" style={MenuStyle} collapsed={collapsed}>
-          <Menu
-            defaultSelectedKeys={[selectedKey]}
-            mode="vertical"
-            items={mainMenuItems}
-            onClick={clickMainMenuButtonHandler}
-          />
+      <Layout style={{ minHeight: '100vh' }}>
+        <Sider collapsible theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" items={mainMenuItems} />
         </Sider>
-      </div>
+      </Layout>
     </>
   )
 };

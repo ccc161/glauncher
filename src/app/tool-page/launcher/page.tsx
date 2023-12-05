@@ -1,13 +1,13 @@
-// YourPage.tsx
 import HorizontalLayout from "./HorizontalLayout";
+import { Flex, Layout } from "antd";
 
-const YourPage = () => {
+const LauncherPage = () => {
   return (
-    <div>
-      <h1>Your Page</h1>
+    <Layout>
       <HorizontalLayout />
-    </div>
+    </Layout>
+      
   );
 };
 
-export default YourPage;
+export default LauncherPage;

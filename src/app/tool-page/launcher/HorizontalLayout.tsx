@@ -11,9 +11,9 @@ const HorizontalLayout = () => {
       <Divider type="vertical" style={{ height: '100%', margin: '0 16px' }} />
 
       {/* Right side with a horizontal rolled list of cards */}
-      <div style={{ display: 'flex', overflowX: 'auto' }}>
+      <div style={{ display: 'flex', overflowX: 'auto', maxWidth: "70vw" }}>
         {/* Replace this with your actual data */}
-        {[1, 2, 3, 4, 5].map((item) => (
+        {[1, 2, 3,4,5,6].map((item) => (
           <Card key={item} style={{ width: 200, margin: '0 8px' }}>
             <p>Card {item}</p>
           </Card>
