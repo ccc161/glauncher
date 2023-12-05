@@ -25,13 +25,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning style={{ margin: 0 }}>
         <StyledComponentsRegistry>
-          <Row wrap={false}>
-            <div id='sidebarMenu' style={{ minWidth: "5vw", maxWidth: "20vw" }}>
+          <Row wrap={false} align={'top'} gutter={[0, 0]}>
+            <Col flex="none">
               <MainMenu />
-            </div>
-              <div style={{maxWidth: "100%", maxHeight: "100%"}}>
-                {children}
-              </div>
+            </Col>
+            <Col flex="auto">
+              {children}
+            </Col>
           </Row>
         </StyledComponentsRegistry>
       </body>

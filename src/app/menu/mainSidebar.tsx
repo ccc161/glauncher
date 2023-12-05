@@ -12,7 +12,9 @@ const { Sider } = Layout;
 
 const MenuStyle: React.CSSProperties = {
   overflowY: "auto",
+  minHeight: "100vh",
   maxHeight: "100vh",
+  overflowX: "hidden",
 }
 
 
@@ -65,11 +67,9 @@ const MainMenu = () => {
 
   return (
     <>
-      <Layout style={{ minHeight: '100vh' }}>
         <Sider theme='light' style={MenuStyle} collapsed={collapsed} onCollapse={handleCollapse}>
           <Menu theme="light" defaultSelectedKeys={[]} mode="inline" items={mainMenuItems} />
         </Sider>
-      </Layout>
     </>
   )
 };

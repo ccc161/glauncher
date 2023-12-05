@@ -22,6 +22,7 @@ export default function PageLayout({
       marginRight: "1vw",
       marginTop: "0",
       marginBottom: "0",
+      backgroundColor: "green"
     }}>
       {children}
     </Flex>

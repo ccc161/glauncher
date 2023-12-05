@@ -32,7 +32,7 @@ let MainMenuViews: MenuItemView[] = [
     },
 ]
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
     MainMenuViews.push({
         key: (Math.random() * 100).toString(),
         name: "关于",
