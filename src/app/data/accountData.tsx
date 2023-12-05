@@ -1,5 +1,7 @@
 let AccountsLists = [
     {
-        name
+        key: "xiaoming",
+        path: "filePath",
+
     }
 ]

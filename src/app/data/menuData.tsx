@@ -1,5 +1,5 @@
 import { RocketFilled, SettingFilled, InfoCircleFilled, HomeFilled } from "@ant-design/icons"
-import { MenuItemView } from "../entity/menuEntity";
+import { MenuItemView } from "../view/menuView";
 
 let MainMenuViews: MenuItemView[] = [
     {

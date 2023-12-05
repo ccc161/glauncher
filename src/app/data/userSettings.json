@@ -1,0 +1,10 @@
+{
+    "launchSettings": {
+        "window": {
+            "width": 1920,
+            "height": 1080,
+            "fullScreen": false,
+            "popUpWindow": false
+        }
+    }
+}

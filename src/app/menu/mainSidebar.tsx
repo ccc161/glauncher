@@ -7,7 +7,7 @@ import MainMenuViews from '../data/menuData';
 
 import type { MenuProps } from 'antd';
 import { MenuItem } from 'rc-menu';
-import { fromMenuViewToMenuItem } from '../entity/menuEntity';
+import { fromMenuViewToMenuItem } from '../view/menuView';
 const { Sider } = Layout;
 
 const MenuStyle: React.CSSProperties = {

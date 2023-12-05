@@ -1,13 +1,14 @@
-import { space } from "postcss/lib/list";
+'use client'
 import HorizontalLayout from "./HorizontalLayout";
-import { Col, Row, Flex, Layout, Button } from "antd";
+import React, { useState, useRef } from 'react';
+
+import LaunchSettingsCard from "./LaunchSettings"
 
 const LauncherPage = () => {
   return (
     <>
-        <HorizontalLayout></HorizontalLayout>
-        <HorizontalLayout></HorizontalLayout>
-    </> 
+      <LaunchSettingsCard />
+    </>
   );
 };
 
